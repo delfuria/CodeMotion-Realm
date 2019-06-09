@@ -10,9 +10,9 @@ namespace XamarinForms_SyncTask
 
         public static class Server
         {
-            public static string SyncHost { get; set; } = "wpc2018.de1a.cloud.realm.io";
+            public static string SyncHost { get; set; } = "codemotion.de1a.cloud.realm.io";
 
-            public static Uri SyncServerUri => new Uri($"realms://{SyncHost}/WPCDEMO");
+            public static Uri SyncServerUri => new Uri($"realms://{SyncHost}/Demo");
 
             public static Uri AuthServerUri => new Uri($"https://{SyncHost}");
         }
