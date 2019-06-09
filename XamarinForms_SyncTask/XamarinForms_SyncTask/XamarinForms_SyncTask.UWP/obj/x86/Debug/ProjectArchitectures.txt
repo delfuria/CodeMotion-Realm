@@ -1,1 +1,0 @@
-C:\Lavori\CM2019\XamarinForms_SyncTask\XamarinForms_SyncTask\XamarinForms_SyncTask.UWP\XamarinForms_SyncTask.UWP.csproj;x86
