@@ -17,16 +17,16 @@ namespace ConsoleDemo
     {
         static void Main(string[] args)
         {
-            //Demo1DefaultConfig();
-            //Demo2CustomConfig();
-            //Demo3Query();
-            //Demo4Relation11();
-            //Demo5Relation1N();
-            //Demo6Relation1NBackLink();
-            //Demo7Encryption();
-            //Demo8MultiThread();
-            //Demo9Notification();
-            Demo10RealmObjectServer();
+            Demo1DefaultConfig();
+            Demo2CustomConfig();
+            Demo3Query();
+            Demo4Relation11();
+            Demo5Relation1N();
+            Demo6Relation1NBackLink();
+            Demo7Encryption();
+            Demo8MultiThread();
+            Demo9Notification();
+            //Demo10RealmObjectServer();
             Console.WriteLine("End Demo");
             Console.ReadLine();
         }
@@ -86,13 +86,14 @@ namespace ConsoleDemo
 
             Task.Run(() =>
             {
-                // Da errore !!!
+                ////Da errore !!!
                 //realm.Write(() =>
                 //{
                 //    persona.FirstName = "Marco";
                 //});
 
 
+                // Corretto
                 var altroRealm = Realm.GetInstance(realm.Config);
                 var altraPersona = altroRealm.ResolveReference(referencePersona);
                 if (altraPersona == null)
@@ -108,7 +109,7 @@ namespace ConsoleDemo
         }
         static void Demo7Encryption()
         {
-            string key = "Questa è una chiave composta da 64Bytes proprio come vuole Realm";
+            string key = "This is a 64Bytes key, just like Realm wants and not a char less";
 
 
             // Specifica le classi da persistere e la configurazione
@@ -122,7 +123,7 @@ namespace ConsoleDemo
             Employee emp = new Employee();
             emp.Name = "Stefano";
             emp.BirthDate = DateTimeOffset.Parse("28/10/1966");
-            emp.Email = "delfuria@gmail.com";
+            emp.Email = "delfuria@mymail.com";
             emp.Photo = null;
             emp.PhotoPath = @"c:\Foto.jpg";
 
@@ -293,7 +294,7 @@ namespace ConsoleDemo
         {
             // Specifica le classi da persistere e la configurazione
             var config = new RealmConfiguration("Demo2CustomConfig.realm")
-                { SchemaVersion = 1 };
+            { SchemaVersion = 1 };
             config.ObjectClasses = new[] { typeof(People) };
             Realm.DeleteRealm(config);
             var realm = Realm.GetInstance(config);
